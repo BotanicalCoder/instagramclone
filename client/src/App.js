@@ -39,7 +39,7 @@ const GuardedRoutes = () => {
 
   return (
     <Switch>
-       <Route path='*'> <Error/> </Route>
+       
       <Route path="/" exact>
         <HomeComponent />
       </Route>
@@ -58,6 +58,7 @@ const GuardedRoutes = () => {
       <Route path="/editprofile/:username">
         <EditProfile />
       </Route>
+      <Route path='*'> <Error/> </Route>
     </Switch>
   );
 };
