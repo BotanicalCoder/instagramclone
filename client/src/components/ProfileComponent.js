@@ -163,31 +163,37 @@ const ProfileComponent = () => {
             </p>
           </section>
 
-          <section className="profile__activity ">
-            <div></div>
+          {!state ? (
+            " "
+          ) : userData.username == state.username ? (
+            ""
+          ) : (
+            <section className="profile__activity ">
+              <div></div>
 
-            {!userData.followers ? (
-              " "
-            ) : !userData.followers.includes(userData._id) ? (
-              <Button
-                className="ml-5"
-                onClick={() => {
-                  followUser(userData._id);
-                }}
-              >
-                Follow
-              </Button>
-            ) : (
-              <Button
-                className="mx-2"
-                onClick={() => {
-                  unfollowUser(userData._id);
-                }}
-              >
-                Unfollow
-              </Button>
-            )}
-          </section>
+              {!userData.followers ? (
+                " "
+              ) : !userData.followers.includes(userData._id) ? (
+                <Button
+                  className="ml-5"
+                  onClick={() => {
+                    followUser(userData._id);
+                  }}
+                >
+                  Follow
+                </Button>
+              ) : (
+                <Button
+                  className="mx-2"
+                  onClick={() => {
+                    unfollowUser(userData._id);
+                  }}
+                >
+                  Unfollow
+                </Button>
+              )}
+            </section>
+          )}
         </section>
       </section>
 
