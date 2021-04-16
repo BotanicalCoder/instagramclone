@@ -32,8 +32,7 @@ const GuardedRoutes = () => {
       history.push("/signin");
     }
     return () => {
-      dispatch({ type: "CLEAR" });
-      history.push("/signin");
+      history.push("/");
     };
   }, [dispatch, history]);
 
