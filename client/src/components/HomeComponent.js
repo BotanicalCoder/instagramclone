@@ -24,7 +24,7 @@ const HomeComponent = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/post/all", {
+      .get("https://instagramclonebc.herokuapp.com/post/all", {
         headers: {
           "Content-Type": "application/json",
           authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -44,7 +44,7 @@ const HomeComponent = () => {
   const deletePost = (postId) => {
     console.log(postId, " post Deleted");
     axios
-      .delete(`http://localhost:5000/post/delete/${postId}`, {
+      .delete(`https://instagramclonebc.herokuapp.com/post/delete/${postId}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -59,7 +59,7 @@ const HomeComponent = () => {
     console.log(postId);
     console.log(localStorage.getItem("jwt"));
     axios
-      .put(`http://localhost:5000/post/like/${postId}`, "", {
+      .put(`https://instagramclonebc.herokuapp.com/post/like/${postId}`, "", {
         headers: {
           "Content-Type": "application/json",
           authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -81,7 +81,7 @@ const HomeComponent = () => {
     console.log(postId);
     console.log(localStorage.getItem("jwt"));
     axios
-      .put(`http://localhost:5000/post/unlike/${postId}`, "", {
+      .put(`https://instagramclonebc.herokuapp.com/post/unlike/${postId}`, "", {
         headers: {
           "Content-Type": "application/json",
           authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -106,12 +106,16 @@ const HomeComponent = () => {
       comment: comment,
     });
     axios
-      .put(`http://localhost:5000/post/comment/${postId}`, postBody, {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: "Bearer " + localStorage.getItem("jwt"),
-        },
-      })
+      .put(
+        `https://instagramclonebc.herokuapp.com/post/comment/${postId}`,
+        postBody,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: "Bearer " + localStorage.getItem("jwt"),
+          },
+        }
+      )
       .then(
         (res) => {
           console.log(res);
@@ -129,12 +133,16 @@ const HomeComponent = () => {
     console.log(comment);
 
     axios
-      .put(`http://localhost:5000/post/uncomment/${postId}/${commentId}`, "", {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: "Bearer " + localStorage.getItem("jwt"),
-        },
-      })
+      .put(
+        `https://instagramclonebc.herokuapp.com/post/uncomment/${postId}/${commentId}`,
+        "",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: "Bearer " + localStorage.getItem("jwt"),
+          },
+        }
+      )
       .then(
         (res) => {
           console.log(res);

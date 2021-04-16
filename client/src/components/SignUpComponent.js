@@ -37,7 +37,7 @@ const SignUp = () => {
         password: password,
       });
       axios
-        .post("http://localhost:5000/auth/signup", body, {
+        .post("https://instagramclonebc.herokuapp.com/auth/signup", body, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {

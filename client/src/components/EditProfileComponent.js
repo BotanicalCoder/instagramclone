@@ -43,12 +43,16 @@ const EditProfile = () => {
     });
 
     axios
-      .put(`http://localhost:5000/user/edit/${username} `, profileBody, {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: "Bearer " + localStorage.getItem("jwt"),
-        },
-      })
+      .put(
+        `https://instagramclonebc.herokuapp.com/user/edit/${username} `,
+        profileBody,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: "Bearer " + localStorage.getItem("jwt"),
+          },
+        }
+      )
       .then(
         (res) => {
           console.log(res);

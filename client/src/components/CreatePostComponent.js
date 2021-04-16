@@ -42,7 +42,7 @@ const CreatePost = () => {
     });
 
     axios
-      .post("http://localhost:5000/post/create", postBody, {
+      .post("https://instagramclonebc.herokuapp.com/post/create", postBody, {
         headers: {
           "Content-Type": "application/json",
           authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -94,7 +94,7 @@ const CreatePost = () => {
             setImg(e.target.files[0]);
           }}
         />
-         <Form.Control.Feedback type="valid">You did it!</Form.Control.Feedback>
+        <Form.Control.Feedback type="valid">You did it!</Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group controlId="formBasicTitle">

@@ -27,7 +27,7 @@ const SignIn = () => {
     if (emailValid) {
       setShowA(false);
       axios
-        .post("http://localhost:5000/auth/signin/", body, {
+        .post("https://instagramclonebc.herokuapp.com/auth/signin/", body, {
           headers: {
             "content-type": "application/json",
           },

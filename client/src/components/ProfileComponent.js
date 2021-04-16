@@ -15,7 +15,7 @@ const ProfileComponent = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/user/${username}`, {
+      .get(`https://instagramclonebc.herokuapp.com/user/${username}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -39,7 +39,7 @@ const ProfileComponent = () => {
     console.log(userId);
 
     axios
-      .put(`http://localhost:5000/user/follow/${userId}`, "", {
+      .put(`https://instagramclonebc.herokuapp.com/user/follow/${userId}`, "", {
         headers: {
           "Content-Type": "application/json",
           authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -61,12 +61,16 @@ const ProfileComponent = () => {
     console.log(userId);
 
     axios
-      .put(`http://localhost:5000/user/unfollow/${userId}`, "", {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: "Bearer " + localStorage.getItem("jwt"),
-        },
-      })
+      .put(
+        `https://instagramclonebc.herokuapp.com/user/unfollow/${userId}`,
+        "",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: "Bearer " + localStorage.getItem("jwt"),
+          },
+        }
+      )
       .then(
         (res) => {
           console.log(res);
