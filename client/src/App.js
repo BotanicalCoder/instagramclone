@@ -39,7 +39,6 @@ const GuardedRoutes = () => {
 
   return (
     <Switch>
-       
       <Route path="/" exact>
         <HomeComponent />
       </Route>
@@ -58,6 +57,10 @@ const GuardedRoutes = () => {
       <Route path="/editprofile/:username">
         <EditProfile />
       </Route>
+      <Route path="*">
+        {" "}
+        <Error />{" "}
+      </Route>
     </Switch>
   );
 };
@@ -70,8 +73,6 @@ function App() {
       <Router>
         <NavbarComponent />
         <GuardedRoutes />
-      <Route path='*'> <Error/> </Route>
-       
       </Router>
     </UserContext.Provider>
   );
