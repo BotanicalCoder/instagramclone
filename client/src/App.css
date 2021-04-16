@@ -1,0 +1,16 @@
+html {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+* {
+  box-sizing: border-box;
+  margin: 0rem !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+body {
+  background-color: rgb(230, 227, 227);
+  color: black !important;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}

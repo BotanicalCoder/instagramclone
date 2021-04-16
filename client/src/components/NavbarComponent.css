@@ -1,0 +1,36 @@
+.Navbar {
+  background-color: white !important;
+}
+
+.Navbar__brand {
+  font-family: "Mr Dafoe";
+  font-size: 1.1rem;
+  font-variant: normal;
+  text-transform: capitalize;
+  flex: auto;
+}
+
+.Navbar__list {
+  flex: 40%;
+}
+
+a {
+  color: black;
+}
+
+.tooltip-inner {
+  background-color: white !important;
+  opacity: 1;
+}
+@media only screen and (min-width: 1023px) {
+  .Navbar--large {
+    font-size: x-large;
+  }
+  .Navbar__list {
+    justify-content: space-between !important;
+  }
+  .Navbar__brand {
+    flex: 60%;
+    font-size: 3rem;
+  }
+}

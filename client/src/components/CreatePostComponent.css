@@ -1,0 +1,9 @@
+.form-control {
+    background-color: rgb(240, 238, 238);
+    margin: 1rem 0rem !important;
+  }
+  
+  h2.form-text {
+    text-align: center !important;
+    font-family: "Mr Dafoe";
+  }
