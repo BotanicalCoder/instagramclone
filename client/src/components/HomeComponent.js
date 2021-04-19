@@ -192,7 +192,7 @@ const HomeComponent = () => {
                 variant="bottom"
                 src={post.media}
                 alt="media"
-                height={700}
+                height={500}
               />
               <div className="post__body__reactions">
                 <div className="post__body__reactions--left">
