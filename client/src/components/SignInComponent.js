@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./SignInComponent.css";
 import Toast from "react-bootstrap/Toast";
+import { UserContext } from "../App.js";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +13,7 @@ const SignIn = () => {
   const [signedIn, setSignedIn] = useState(false);
   const [showA, setShowA] = useState(false);
   const [showB, setShowB] = useState(false);
+  const { state, dispatch } = useContext(UserContext);
 
   const postData = () => {
     function validateEmail(email) {
@@ -40,6 +42,8 @@ const SignIn = () => {
           } else {
             localStorage.setItem("jwt", response.data.token);
             localStorage.setItem("user", JSON.stringify(response.data.user));
+
+            dispatch({ type: "USER", payload: response.data.user });
 
             setSignedIn(true);
           }
