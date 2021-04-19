@@ -102,7 +102,15 @@ const ProfileComponent = () => {
             {!userData ? "loading" : userData.username} <GiCog />
           </h3>
 
-          <Link to={`/editprofile/${username}`}>
+          <Link
+            to={
+              !state
+                ? " "
+                : userData.username == state.username
+                ? `/editprofile/${username}`
+                : ""
+            }
+          >
             <Button
               variant="light"
               size="sm"
