@@ -78,7 +78,7 @@ router.put("/unfollow/:userId", validateLogin, (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.put("/edit/:username", validateLogin, (req, res) => {
+router.put("/edit/:oldusername", validateLogin, (req, res) => {
   res.setHeader({ "Access-Control-Allow-Origin": "*" });
   let { newUsername, newProfilePic } = req.body;
   console.log(newUsername, newProfilePic);
