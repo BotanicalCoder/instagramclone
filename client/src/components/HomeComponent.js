@@ -198,7 +198,7 @@ const HomeComponent = () => {
               />
               <div className="post__body__reactions">
                 <div className="post__body__reactions--left">
-                  {!post.likes.includes(state._id) ? (
+                  {!state ? "" :!post.likes.includes(state._id) ? (
                     <FaRegHeart
                       className="post__body__reactions--spaced"
                       onClick={
