@@ -6,10 +6,10 @@ import Toast from "react-bootstrap/Toast";
 import "./SignInComponent.css";
 import axios from "axios";
 const SignUp = () => {
-  const [userName, setUsername] = useState("");
-  const [fullName, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUsername] = useState(undefined);
+  const [fullName, setFullname] = useState(undefined);
+  const [email, setEmail] = useState(undefined);
+  const [password, setPassword] = useState(undefined);
   const [invalidMail, setInvalidMail] = useState();
   const [formCompleted, setFormCompleted] = useState(false);
   const [showA, setShowA] = useState(false);

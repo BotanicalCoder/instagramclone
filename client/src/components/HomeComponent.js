@@ -175,7 +175,9 @@ const HomeComponent = () => {
                     {!post.postedBy ? "loading" : post.postedBy.username}
                   </Link>
                 </h5>
-                {state.username == post.postedBy.username ? (
+                {!state ? (
+                  ""
+                ) : state.username == post.postedBy.username ? (
                   <FiTrash
                     className="post__body__icon"
                     onClick={() => {
@@ -257,7 +259,9 @@ const HomeComponent = () => {
                       <p key={comment._id}>
                         <strong>{comment.postedBy.username} : </strong>
                         {comment.comment}
-                        {comment.postedBy.username == state.username ? (
+                        {!state ? (
+                          ""
+                        ) : comment.postedBy.username == state.username ? (
                           <FiTrash
                             className="post__body__icon"
                             onClick={() => {
