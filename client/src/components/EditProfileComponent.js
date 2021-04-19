@@ -8,12 +8,13 @@ import "./EditProfileComponent.css";
 import { UserContext } from "../App.js";
 
 const EditProfile = () => {
-  const [newusername, setNewUsername] = useState(undefined);
+  const { username } = useParams();
+
+  const [newusername, setNewUsername] = useState(username);
   const [img, setImg] = useState("");
-  const [imageUrl, setImageurl] = useState(undefined);
+  const [imageUrl, setImageurl] = useState("undefined");
   const [showA, setShowA] = useState(false);
   const history = useHistory();
-  const { username } = useParams();
   const { state, dispatch } = useContext(UserContext);
 
   useEffect(() => {

@@ -80,7 +80,6 @@ router.put("/unfollow/:userId", validateLogin, (req, res) => {
 
 router.put("/edit/:oldusername", validateLogin, (req, res) => {
   let { newUsername, newProfilePic } = req.body;
-  console.log(newUsername, newProfilePic);
   const { oldusername } = req.params;
   if (!newUsername && !newProfilePic) {
     return res.send("input either the title or body");
@@ -89,21 +88,24 @@ router.put("/edit/:oldusername", validateLogin, (req, res) => {
   User.find({ username: oldusername })
     .select("username profilePic -_id")
     .then((profileInReview) => {
+      //console.log(profileInReview);
+
       let { username, profilePic } = profileInReview;
       if (
-        newUsername === undefined ||
-        newUsername === null ||
+        newUsername == undefined ||
+        newUsername == null ||
         newUsername == " "
       ) {
         newUsername = username;
       }
       if (
-        newProfilePic === undefined ||
-        newProfilePic === null ||
+        newProfilePic == undefined ||
+        newProfilePic == null ||
         newProfilePic == " "
       ) {
         newProfilePic = profilePic;
       }
+      console.log(newUsername, newProfilePic);
 
       User.findOneAndUpdate(
         { username: oldusername },
@@ -128,7 +130,16 @@ router.put("/edit/:oldusername", validateLogin, (req, res) => {
           } = editedProfile;
           return res.json({
             message: "profile edited",
-            user: { name, username, email, posts, following, followers, _id, profilePic },
+            user: {
+              name,
+              username,
+              email,
+              posts,
+              following,
+              followers,
+              _id,
+              profilePic,
+            },
           });
         })
         .catch((err) => console.log(err));
