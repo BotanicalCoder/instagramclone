@@ -201,9 +201,13 @@ const HomeComponent = () => {
                   {!post.likes.includes(state._id) ? (
                     <FaRegHeart
                       className="post__body__reactions--spaced"
-                      onClick={() => {
-                        likePost(post._id);
-                      }}
+                      onClick={
+                        !post
+                          ? ""
+                          : () => {
+                              likePost(post._id);
+                            }
+                      }
                     />
                   ) : (
                     <FaHeart
