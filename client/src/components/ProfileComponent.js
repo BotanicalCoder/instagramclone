@@ -106,7 +106,6 @@ const ProfileComponent = () => {
             <Button
               variant="light"
               size="sm"
-              block
               className="profile__details__button"
               disabled={
                 !state
