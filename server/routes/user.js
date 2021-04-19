@@ -79,7 +79,6 @@ router.put("/unfollow/:userId", validateLogin, (req, res) => {
 });
 
 router.put("/edit/:oldusername", validateLogin, (req, res) => {
-  res.setHeader({ "Access-Control-Allow-Origin": "*" });
   let { newUsername, newProfilePic } = req.body;
   console.log(newUsername, newProfilePic);
   const { oldusername } = req.params;
@@ -88,7 +87,7 @@ router.put("/edit/:oldusername", validateLogin, (req, res) => {
   }
 
   User.find({ username: oldusername })
-    .select("username profilePic -_id -password")
+    .select("username profilePic -_id")
     .then((profileInReview) => {
       let { username, profilePic } = profileInReview;
       if (
@@ -98,7 +97,11 @@ router.put("/edit/:oldusername", validateLogin, (req, res) => {
       ) {
         newUsername = username;
       }
-      if (newProfilePic === undefined || newProfilePic === null) {
+      if (
+        newProfilePic === undefined ||
+        newProfilePic === null ||
+        newProfilePic == ""
+      ) {
         newProfilePic = profilePic;
       }
 
@@ -109,9 +112,24 @@ router.put("/edit/:oldusername", validateLogin, (req, res) => {
         },
         { new: true }
       )
-        .select("-password")
+
+        .populate({ path: "posts", select: "-_id -__v" })
+        .select("-__v")
         .then((editedProfile) => {
-          return res.json({ message: "profile edited", user: editedProfile });
+          const {
+            name,
+            username,
+            email,
+            posts,
+            following,
+            followers,
+            _id,
+            profilePic,
+          } = editedProfile;
+          return res.json({
+            message: "profile edited",
+            user: { name, username, email, posts, following, followers, _id, profilePic },
+          });
         })
         .catch((err) => console.log(err));
     })
