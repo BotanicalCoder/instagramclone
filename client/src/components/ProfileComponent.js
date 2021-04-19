@@ -133,6 +133,13 @@ const ProfileComponent = () => {
               size="sm"
               block
               className="profile__details__button--desktop px-0 py-0 my-5 "
+              visibility={
+                !state
+                  ? " "
+                  : userData.username == state.username
+                  ? "visible"
+                  : "none"
+              }
             >
               Edit Profile
             </Button>
