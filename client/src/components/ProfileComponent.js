@@ -108,6 +108,13 @@ const ProfileComponent = () => {
               size="sm"
               block
               className="profile__details__button"
+              disabled={
+                !state
+                  ? true
+                  : userData.username !== state.username
+                  ? true
+                  : false
+              }
             >
               Edit Profile
             </Button>
@@ -125,20 +132,19 @@ const ProfileComponent = () => {
                 ? " "
                 : userData.username == state.username
                 ? `/editprofile/${username}`
-                : null
+                : ""
             }
           >
             <Button
               variant="light"
               size="sm"
-              block
               className="profile__details__button--desktop px-0 py-0 my-5 "
-              visibility={
+              disabled={
                 !state
-                  ? " "
-                  : userData.username == state.username
-                  ? "visible"
-                  : "none"
+                  ? true
+                  : userData.username !== state.username
+                  ? true
+                  : false
               }
             >
               Edit Profile

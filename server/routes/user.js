@@ -79,6 +79,7 @@ router.put("/unfollow/:userId", validateLogin, (req, res) => {
 });
 
 router.put("/edit/:username", validateLogin, (req, res) => {
+  res.setHeader({ "Access-Control-Allow-Origin": "*" });
   let { newUsername, newProfilePic } = req.body;
   console.log(newUsername, newProfilePic);
   const { oldusername } = req.params;
@@ -110,7 +111,7 @@ router.put("/edit/:username", validateLogin, (req, res) => {
       )
         .select("-password")
         .then((editedProfile) => {
-          return res.send({ message: "profile edited", user: editedProfile });
+          return res.json({ message: "profile edited", user: editedProfile });
         })
         .catch((err) => console.log(err));
     })

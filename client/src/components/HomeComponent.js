@@ -188,7 +188,12 @@ const HomeComponent = () => {
                 <HiDotsHorizontal className="post__body__icon" />
               </Card.Title>
 
-              <Card.Img variant="bottom" src={post.media} alt="media" />
+              <Card.Img
+                variant="bottom"
+                src={post.media}
+                alt="media"
+                height={700}
+              />
               <div className="post__body__reactions">
                 <div className="post__body__reactions--left">
                   {!post.likes.includes(state._id) ? (

@@ -34,7 +34,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  
 }
 .profile__activity {
   margin-left: 5rem !important;
@@ -51,6 +50,7 @@
 
 .profile__post__photo {
   flex: 30%;
+  max-height: 30vh !important;
 }
 
 @media only screen and (min-width: 1022px) and (max-width: 1024px) {
