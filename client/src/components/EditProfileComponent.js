@@ -36,7 +36,7 @@ const EditProfile = () => {
 
   const postData = () => {
     console.log("new profile submitted");
-    console.log(username);
+    console.log(username, newusername);
     const profileBody = JSON.stringify({
       newUsername: newusername,
       newProfilePic: imageUrl,
@@ -48,6 +48,7 @@ const EditProfile = () => {
         profileBody,
         {
           headers: {
+            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
             authorization: "Bearer " + localStorage.getItem("jwt"),
           },

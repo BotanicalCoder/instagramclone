@@ -119,7 +119,15 @@ const ProfileComponent = () => {
             {!userData ? "loading" : userData.username}
           </h4>
 
-          <Link to={`/editprofile/${username}`}>
+          <Link
+            to={
+              !state
+                ? " "
+                : userData.username == state.username
+                ? `/editprofile/${username}`
+                : null
+            }
+          >
             <Button
               variant="light"
               size="sm"

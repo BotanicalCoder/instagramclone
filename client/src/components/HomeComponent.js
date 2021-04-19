@@ -157,17 +157,9 @@ const HomeComponent = () => {
 
   return (
     <>
-      <p className="plusIcon">
-        {" "}
-        <Link to="/createpost">
-          <FiPlusCircle />
-        </Link>
-      </p>
-
       {posts.map((post) => {
         return (
           <div key={posts.indexOf(post)}>
-            {" "}
             <Card className="post" as="section">
               <Card.Title className="post__body">
                 <Image

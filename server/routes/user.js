@@ -3,6 +3,9 @@ const router = express.Router();
 const User = require("../models/userModel");
 const Post = require("../models/postModel");
 const validateLogin = require("../middleware/validateLogin");
+const cors = require("cors");
+
+router.use(cors());
 
 router.get("/:username", validateLogin, (req, res) => {
   const { username } = req.params;
@@ -102,7 +105,8 @@ router.put("/edit/:username", validateLogin, (req, res) => {
         { username: oldusername },
         {
           $set: { username: newUsername, profilePic: newProfilePic },
-        }
+        },
+        { new: true }
       )
         .select("-password")
         .then((editedProfile) => {
