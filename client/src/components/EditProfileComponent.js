@@ -44,7 +44,7 @@ const EditProfile = () => {
 
     axios
       .put(
-        `https://instagramclonebc.herokuapp.com/user/edit/${username} `,
+        `https://instagramclonebc.herokuapp.com/user/edit/${username}`,
         profileBody,
         {
           headers: {
@@ -58,7 +58,13 @@ const EditProfile = () => {
         (res) => {
           console.log(res);
           if (res.data.message == "profile edited") {
-            dispatch({ type: "UPDATEUSER", payload: res.data.user });
+            dispatch({
+              type: "UPDATEUSER",
+              payload: {
+                username: res.data.user.username,
+                profilePic: res.data.user.profilePic,
+              },
+            });
             localStorage.setItem("user", JSON.stringify(res.data.user));
             history.push(`/profile/${username}`);
           } else {

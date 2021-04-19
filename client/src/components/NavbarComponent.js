@@ -102,6 +102,7 @@ const NavbarComponent = () => {
             localStorage.clear();
             dispatch({ type: "CLEAR" });
             history.push("/signin");
+            setShowAlert(false);
           }}
         >
           Yes I am sure{" "}

@@ -50,7 +50,7 @@
 
 .profile__post__photo {
   flex: 30%;
-  max-height: 40vh !important;
+  max-height: 50vh !important;
 }
 
 @media only screen and (min-width: 1022px) and (max-width: 1024px) {
