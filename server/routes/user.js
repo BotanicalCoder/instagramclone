@@ -93,14 +93,14 @@ router.put("/edit/:oldusername", validateLogin, (req, res) => {
       if (
         newUsername === undefined ||
         newUsername === null ||
-        newUsername == ""
+        newUsername == " "
       ) {
         newUsername = username;
       }
       if (
         newProfilePic === undefined ||
         newProfilePic === null ||
-        newProfilePic == ""
+        newProfilePic == " "
       ) {
         newProfilePic = profilePic;
       }
