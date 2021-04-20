@@ -34,7 +34,9 @@ const CreatePost = () => {
   }, [img, setImageurl]);
 
   const postData = () => {
-    console.log("post submitted");
+    if(title.trim()=="" ){ 
+     return setShowA(true);
+}
     const postBody = JSON.stringify({
       title: title,
       body: body,
