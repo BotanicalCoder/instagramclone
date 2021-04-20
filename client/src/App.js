@@ -28,6 +28,7 @@ const GuardedRoutes = () => {
 
     if (user != null && user !== undefined) {
       dispatch({ type: "USER", payload: user });
+      history.push("/");
     } else {
       history.push("/signin");
     }
