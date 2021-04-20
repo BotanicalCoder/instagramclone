@@ -248,6 +248,7 @@ const HomeComponent = () => {
                     variant="primary"
                     type="submit"
                     inline="true"
+                    disabled = { comment.trim()=="" ? true : false}
                     onClick={(e) => {
                       e.preventDefault();
 
