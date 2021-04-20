@@ -79,7 +79,7 @@ const CreatePost = () => {
       >
         <Toast.Header className="bg-danger text-white">
           <strong className="mr-auto ">
-            an error occured please fill form and retry
+            an error occured please fill form fields and retry
           </strong>
         </Toast.Header>
       </Toast>
