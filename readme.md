@@ -36,4 +36,4 @@ It is my very first full stack project 😁😁
 
 ## Contact
 
- Created by [botanicalcoder]((https://www.twitter.com/botanicalcoder)
+ Created by [botanicalcoder](https://www.twitter.com/botanicalcoder)
