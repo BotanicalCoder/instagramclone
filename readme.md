@@ -28,6 +28,15 @@ It is my very first full stack project 😁😁
 - bootstrap
 - react-router-dom
 
+### Back end
+- Node js
+- Express js
+- Mongoose
+- bcrypt js
+- jwt
+- Mongo db
+
+
 ## Set up
 
 - type (npm install) in your terminal in the sub-directory of choice to setup either the front end or the back end
